@@ -8,18 +8,16 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *slow = list, *fast = list;
+	listint_t *slow_ptr = list, *fast_ptr = list;
 
-	while (slow && fast && fast->next)
+	while (slow_ptr && fast_ptr && fast_ptr->next)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
+		slow_ptr = slow_ptr->next;
+		fast_ptr = fast_ptr->next->next;
 
-		/* If there's a cycle, the pointers will meet at some point */
-		if (slow == fast)
-			return 1;
+		if (slow_ptr == fast_ptr)
+			return (1);
 	}
 
-	/* If the loop completes without meeting, there is no cycle */
-	return 0;
+	return (0);
 }
