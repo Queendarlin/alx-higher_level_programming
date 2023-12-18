@@ -1,3 +1,8 @@
+/*
+ * File: 103-python.c
+ * Auth: Queendarlin Nnamani
+ */
+
 #include <Python.h>
 #include <stdio.h>
 
@@ -11,13 +16,13 @@ void print_python_float(PyObject *p);
  */
 void print_python_list(PyObject *p)
 {
-	Py_ssize_t size, allocate, index;
+	Py_ssize_t size, alloc, index;
 	const char *type;
 	PyListObject *list = (PyListObject *)p;
 	PyVarObject *var = (PyVarObject *)p;
 
 	size = var->ob_size;
-	allocate = list->allocated;
+	alloc = list->allocated;
 
 	fflush(stdout);
 
@@ -29,7 +34,7 @@ void print_python_list(PyObject *p)
 	}
 
 	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", allocate);
+	printf("[*] Allocated = %ld\n", alloc);
 
 	for (index = 0; index < size; index++)
 	{
