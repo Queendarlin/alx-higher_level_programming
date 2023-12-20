@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Python file for a MagicClass class
+"""
+
+
 import math
 
 
