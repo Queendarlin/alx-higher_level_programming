@@ -20,7 +20,7 @@ def deepcopy_chessboard(chessboard):
 
 
 def get_queen_positions(chessboard):
-    """Return the list of lists representation of queen positions in a chessboard."""
+    """Return lists representation of queen positions in a chessboard."""
     positions = []
     for r in range(len(chessboard)):
         for c in range(len(chessboard)):
@@ -32,40 +32,32 @@ def get_queen_positions(chessboard):
 
 def mark_spots(chessboard, row, col):
     """Mark spots on a chessboard."""
-    # Mark out all forward spots
     for c in range(col + 1, len(chessboard)):
         chessboard[row][c] = "x"
-    # Mark out all backward spots
     for c in range(col - 1, -1, -1):
         chessboard[row][c] = "x"
-    # Mark out all spots below
     for r in range(row + 1, len(chessboard)):
         chessboard[r][col] = "x"
-    # Mark out all spots above
     for r in range(row - 1, -1, -1):
         chessboard[r][col] = "x"
-    # Mark out all spots diagonally down to the right
     c = col + 1
     for r in range(row + 1, len(chessboard)):
         if c >= len(chessboard):
             break
         chessboard[r][c] = "x"
         c += 1
-    # Mark out all spots diagonally up to the left
     c = col - 1
     for r in range(row - 1, -1, -1):
         if c < 0:
             break
         chessboard[r][c]
         c -= 1
-    # Mark out all spots diagonally up to the right
     c = col + 1
     for r in range(row - 1, -1, -1):
         if c >= len(chessboard):
             break
         chessboard[r][c] = "x"
         c += 1
-    # Mark out all spots diagonally down to the left
     c = col - 1
     for r in range(row + 1, len(chessboard)):
         if c < 0:
