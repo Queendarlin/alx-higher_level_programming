@@ -1,0 +1,96 @@
+Module for a function that prints a text with 2 new lines after each of these characters: ., ? and :
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test cases for the text_indentation function:
+Case 1: Empty string
+    >>> text_indentation('')
+
+Case 2: Single line with .
+    >>> text_indentation('This is a simple line.')
+    This is a simple line.
+    <BLANKLINE>
+
+Case 3: Single line with multiple spaces at the end
+    >>> text_indentation('Another line with extra spaces.     ')
+    Another line with extra spaces.
+    <BLANKLINE>
+
+Case 4: Text with multiple sentences
+    >>> text_indentation('Sentence one. Sentence two! Sentence three?')
+    Sentence one.
+    <BLANKLINE>
+    Sentence two! Sentence three?
+    <BLANKLINE>
+
+Case 5: Text with multiple paragraphs
+    >>> text_indentation('Paragraph one. This is the second sentence in paragraph one.\n\nParagraph two starts here. Ending paragraph two!')
+    Paragraph one.
+    <BLANKLINE>
+    This is the second sentence in paragraph one.
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    Paragraph two starts here.
+    <BLANKLINE>
+    Ending paragraph two!
+
+case 6: Valid
+    >>> text_indentation(".\n\n?\n\n:")
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Case 7: Valid
+    >>> text_indentation("\n\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+
+Case 8: Valid
+    >>> text_indentation("?.:")
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Case 9: Valid
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+Case 10: Valid
+    >>> text_indentation("Girls   :     High    ?    School.    Intl")
+    Girls:
+    <BLANKLINE>
+    High?
+    <BLANKLINE>
+    School.
+    <BLANKLINE>
+    Intl
+
+Case 11: Valid
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Case 12: Invalid
+    >>> text_indentation(4)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Case 13: Invalid
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string

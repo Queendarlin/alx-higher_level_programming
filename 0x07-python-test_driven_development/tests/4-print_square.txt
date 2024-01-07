@@ -1,0 +1,83 @@
+Test case a function that prints a square with the character #
+
+import module
+    >>> print_square = __import__('4-print_square').print_square
+
+Purpose:
+To print a square with the character #
+
+Functionality:
+This function takes an integer size as an argument and
+prints a square of '#' characters, with sides of length size.
+It includes error handling to check if size is an integer and if it's greater than or equal to 0.
+The TypeError and ValueError exceptions are raised accordingly.
+
+Test cases for print_square function:
+Case 1: Valid input with size = 1
+    >>> print_square(1)
+    #
+
+Case 2: Valid input with size = 2
+    >>> print_square(2)
+    ##
+    ##
+
+Case 3: Valid input with size = 4
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+case 4: Valid input with size = 10
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+Case 5: Valid input with size = 0
+    >>> print_square(0)
+
+
+Case 6: Invalid input with size = -1
+    >>> print_square(-1)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Case 7: Invalid input with size = 4.3
+    >>> print_square(4.3)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Case 8: Invalid input with size as a string
+    >>> print_square("five")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Case 9: Invalid input with size = -3.2
+    >>> print_square(-3.2)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Case 10: Invalid input with missing size argument
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Case 11: Invalid input with size as None
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer

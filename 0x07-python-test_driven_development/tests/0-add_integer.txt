@@ -1,0 +1,100 @@
+Module for Integer Addition
+
+import module
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+
+Purpose:
+A function that add two integers
+
+Functionality:
+The function will add two integers "a" and "b". a and b must be integers or floats,
+except a TypeError exception will be raised with error messages: a must be an integer or b must be an integer.
+If a and b are floats they must be first casted to integers
+
+Test cases for add_integer function:
+Case 1:
+    >>> add_integer(1, 2)
+    3
+
+Case 2:
+    >>> add_integer(100, 1)
+    101
+
+Case 3:
+    >>> add_integer(1, -2)
+    -1
+
+Case 4:
+    >>> add_integer(-1, 2)
+    1
+
+Case 5:
+    >>> add_integer(-1, -2)
+    -3
+
+Case 6:
+    >>> add_integer(1)
+    99
+
+Case 7:
+    >>> add_integer(-1)
+    97
+
+Case 8:
+    >>> add_integer(1, 2.4)
+    3
+
+Case 9:
+    >>> add_integer(100.0, 2.0)
+    102
+
+Case 10:
+    >>> add_integer(-1.3, -2.3)
+    -3
+
+Case 11:
+    >>> add_integer(100.3, -2)
+    98
+
+Case 12: Raises exception when a is not an integer
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Case 13: Raises exception when b is not an integer
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Case 14: Raises exception when converting a from infinite floating-point value to an integer
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Case 15: Raises exception when converting b from infinite floating-point value to an integer
+    >>> add_integer(4, float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Case 16: Raises exception when converting a from float to nan
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Case 17: Raises exception when converting b from float to nan
+    >>> add_integer(4, float('nan'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Case 18:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'

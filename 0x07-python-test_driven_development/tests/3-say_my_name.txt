@@ -1,0 +1,65 @@
+Test file for  a function that prints My name is <first name> <last name>
+
+import module
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Purpose:
+To print names based on first name and last name
+
+Functionality:
+This function takes two parameters, first_name and last_name (with a default value of an empty string).
+It prints a formatted string based on the values of first_name and last_name.
+It also raises a TypeError if either first_name or last_name is not a string.
+
+Test cases for say_my_name function:
+Case 1: Valid input with both first and last names
+    >>> say_my_name("Queen", "King")
+    My name is Queen King
+
+Case 2: Valid input with only first name (default last_name)
+    >>> say_my_name("Henry")
+    My name is Henry 
+
+Case 3: Valid input with empty string
+    >>> say_my_name("")
+    My name is  
+
+Case 4: Valid input with empty space in first name
+    >>> say_my_name(" ", "Sarah")
+    My name is   Sarah
+
+Case 5: Valid names with empty spaces for first and last name
+    >>> say_my_name(" ", " ")
+    My name is    
+
+Case 6: Valid input with first and last name as empty strings
+    >>> say_my_name("", "")
+    My name is  
+
+Case 7: Valid input with special characters in first and last name
+    >>> say_my_name("José", "García")
+    My name is José García
+
+Case 8: Valid input to show newline
+    >>> say_my_name('\n', '\n')
+    My name is 
+    <BLANKLINE>
+    <BLANKLINE>
+
+Case 9: Invalid input with an integer as first_name
+    >>> say_my_name(2, "John")
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Case 10: Invalid input with an integer as last_name
+    >>> say_my_name("Queen", 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Case 11: inValid input with first name as None data type
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
