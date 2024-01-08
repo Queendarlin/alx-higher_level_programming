@@ -13,5 +13,4 @@ class MyList(list):
         """
         The method to use for printing the list in sorted form
         """
-        sorted_list = sorted(self)
-        print(sorted_list)
+        print(sorted(self))
