@@ -5,7 +5,7 @@
 def is_kind_of_class(obj, a_class):
     """
         Function Returns True if the object is an instance of,
-        or if the object is an instance of a class that inherited from;
+        or if the object is an instance of a class that inherited
         otherwise, False.
 
         Args:
