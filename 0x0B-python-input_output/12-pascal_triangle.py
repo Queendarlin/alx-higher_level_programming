@@ -1,4 +1,4 @@
-#!/usr/bin/usr
+#!/usr/bin/python3
 """
 Module for pascal_triangle
 """
