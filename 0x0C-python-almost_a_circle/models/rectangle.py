@@ -74,10 +74,9 @@ class Rectangle(Base):
 
     def display(self):
         """Displays the Rectangle with the character '#'."""
-        for symbols in range(self.__y):
-            print()
-        for symbols in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
+        symbol = '\n' * self.y + \
+            (' ' * self.x + '#' * self.width + '\n') * self.height
+        print(symbol, end='')
 
     def __str__(self):
         """Returns the string representation of the Rectangle."""
@@ -107,5 +106,5 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns the dictionary representation of the Rectangle."""
-        return {"id": self.id, "width": self.__width,
-                "height": self.__height, "x": self.__x, "y": self.__y}
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
