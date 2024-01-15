@@ -2,7 +2,7 @@
 """
 Module for Base class
 """
-import json
+from json import dumps, loads
 import csv
 
 
@@ -24,25 +24,23 @@ class Base:
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         else:
-            return json.dumps(list_dictionaries)
-
-    @classmethod
-    def save_to_file(cls, list_objs):
-        """Writes the JSON string representation of list_objs to a file."""
-        if list_objs is None:
-            list_objs = []
-        else:
-            list_objs = [obj.to_dictionary() for obj in list_objs]
-        with open("{}.json".format(cls.__name__), "w",
-                  encoding="utf-8") as file:
-            file.write(cls.to_json_string(list_objs))
+            return dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string."""
         if json_string is None or not json_string:
             return []
-        return json.loads(json_string)
+        return loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Writes the JSON string representation of list_objs to a file."""
+        if list_objs is not None:
+            list_objs = [obj.to_dictionary() for obj in list_objs]
+        with open("{}.json".format(cls.__name__), "w",
+                  encoding="utf-8") as file:
+            file.write(cls.to_json_string(list_objs))
 
     @classmethod
     def create(cls, **dictionary):
