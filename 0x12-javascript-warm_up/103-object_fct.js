@@ -3,14 +3,15 @@
 // Define the myObject object
 const myObject = {
   type: 'object',
-  value: 12,
-  // Define the incr function
-  incr: function () {
-    this.value++;
-  }
+  value: 12
 };
 
 console.log(myObject);
+
+// Define the incr function using dot notation
+myObject.incr = function () {
+  this.value++;
+};
 
 // Call incr function to increment the value
 myObject.incr();
