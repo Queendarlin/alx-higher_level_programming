@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     # Execute SQL query to fetch all states starting with 'N'
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE 'N%'  ORDER BY id ASC"
+        "SELECT * FROM states WHERE name LIKE BINARY 'N%'  ORDER BY id ASC"
     )
 
     # Fetch all rows and print them
