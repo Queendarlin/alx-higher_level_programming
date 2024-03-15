@@ -17,12 +17,11 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Prepare SQL query with user input using format
-    sql_query = "SELECT * FROM states WHERE name = '{}' " \
-                "ORDER BY id ASC".format(state_name)
-
     # Execute SQL query
-    cursor.execute(sql_query)
+    cursor.execute(
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' "
+        "ORDER BY id ASC".format(state_name)
+    )
 
     # Fetch all rows and print them
     rows = cursor.fetchall()
