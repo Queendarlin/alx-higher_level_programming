@@ -4,7 +4,6 @@
 import MySQLdb
 import sys
 
-
 if __name__ == "__main__":
     """Executes the script when run directly."""
     # Extract arguments
@@ -19,7 +18,8 @@ if __name__ == "__main__":
 
     # Execute SQL query
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
+        "SELECT * FROM states WHERE name LIKE BINARY %s \
+        ORDER BY id ASC", state_name
     )
 
     # Fetch all rows and print them
