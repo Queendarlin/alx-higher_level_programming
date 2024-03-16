@@ -4,6 +4,9 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from model_city import Base, City
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class State(Base):
