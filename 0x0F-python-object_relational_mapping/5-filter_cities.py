@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     # Prepare SQL query with parameterized query for state name
     sql_query = """
-    SELECT GROUP_CONCAT(name SEPARATOR ', ')
+    SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
     FROM cities
     JOIN states
     ON cities.state_id = states.id
