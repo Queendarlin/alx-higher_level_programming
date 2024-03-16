@@ -18,8 +18,8 @@ if __name__ == "__main__":
 
     # Execute SQL query
     cursor.execute(
-        "SELECT * FROM states WHERE name LIKE BINARY %s \
-        ORDER BY id ASC", state_name
+        "SELECT * FROM states WHERE name LIKE BINARY %(name)s \
+        ORDER BY id ASC", {'name': state_name}
     )
 
     # Fetch all rows and print them
