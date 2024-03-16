@@ -17,9 +17,9 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Execute SQL query to fetch all states starting with 'N'
+    # Execute SQL query
     cursor.execute(
-        "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        "SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC"
     )
 
     # Fetch all rows and print them
