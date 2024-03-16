@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that lists all cities from the database"""
+"""Script that takes in the name of a state as an argument
+and lists all cities of that state"""
 
 import MySQLdb
 import sys
@@ -16,21 +17,21 @@ if __name__ == "__main__":
     # Create a cursor object using cursor() method
     cursor = db.cursor()
 
-    # Prepare SQL query with parameterized query for state name
-    sql_query = """
-    SELECT GROUP_CONCAT(name SEPARATOR ', ')
-    FROM cities
-    WHERE state_id = (SELECT id FROM states WHERE name = %s)
-    """
-
     # Execute SQL query with state name as parameter
-    cursor.execute(sql_query, state_name)
+    cursor.execute("""
+    SELECT cities.id, cities.name
+    FROM cities
+    JOIN states
+    ON cities.state_id = states.id
+    WHERE states.name LIKE BINARY %(state_name)s
+    ORDER BY cities.id ASC
+    """, {state_name})
 
     # Fetch the result and print it
-    result = cursor.fetchone()
+    result = cursor.fetchall()
 
     if result is not None:
-        print(result[0])
+        print(", ".join([row[1] for row in result]))
 
     # Close the cursor and Database connection
     cursor.close()
