@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Creates the State "California" with the City "San Francisco" from a DB
+Script to create the State "California" with the City "San Francisco"
 """
 import sys
 from relationship_state import Base, State
@@ -18,10 +18,10 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    newState = State(name='California')
-    newCity = City(name='San Francisco')
-    newState.cities.append(newCity)
+    add_state = State(name='California')
+    add_city = City(name='San Francisco')
+    add_state.cities.append(add_city)
 
-    session.add(newState)
-    session.add(newCity)
+    session.add(add_state)
+    session.add(add_ciity)
     session.commit()
