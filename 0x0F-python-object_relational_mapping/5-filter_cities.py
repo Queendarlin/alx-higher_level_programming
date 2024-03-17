@@ -23,23 +23,26 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Prepare SQL query with parameterized query for state name
-    sql_query = """
-    SELECT GROUP_CONCAT(cities.name SEPARATOR ', ')
-    FROM cities
-    JOIN states
-    ON cities.state_id = states.id
-    WHERE states.name LIKE BINARY %s
-    ORDER BY cities.id ASC
-    """
-
-    # Execute SQL query with state name as parameter
-    cursor.execute(sql_query, (state_name,))
-
-    # Fetch the result and print it
-    result = cursor.fetchone()
+    cursor.execute("""
+            SELECT
+                cities.id, cities.name
+            FROM
+                cities
+            JOIN
+                states
+            ON
+                cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
+            ORDER BY
+                cities.id ASC
+        """, {
+            'state_name': argv[4]
+        })
+        result = cursor.fetchall()
 
     if result is not None:
-        print(result[0])
+        print(", ".join([row[1] for row in result]))
 
     # Close the cursor and Database connection
     cursor.close()
