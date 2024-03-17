@@ -19,6 +19,7 @@ if __name__ == "__main__":
     add_state.cities.append(add_city)
 
     session.add(add_state)
+    session.add(add_city)
     session.commit()
 
     # Close the session
