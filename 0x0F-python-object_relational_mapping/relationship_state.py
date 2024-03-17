@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Script with the class definition for the State object"""
 
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
