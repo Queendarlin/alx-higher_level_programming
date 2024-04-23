@@ -23,8 +23,5 @@ request.get(url, (error, response, body) => {
       console.error(err);
       process.exit(1);
     }
-
-    // Log a success message
-    console.log(`Web content has been saved to ${filePath}`);
   });
 });
