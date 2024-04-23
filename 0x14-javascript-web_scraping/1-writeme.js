@@ -8,7 +8,7 @@ const filePath = process.argv[2];
 const content = process.argv[3];
 
 // Write the content to the file asynchronously
-fs.writeFile(filePath, content, 'utf-8', (err) => {
+fs.writeFile(filePath, content, (err) => {
   if (err) {
     // If an error occurs during writing, log the error and exit with error code 1
     console.error(err);
